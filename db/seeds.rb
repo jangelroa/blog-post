@@ -11,7 +11,7 @@ User.create([
     { firstname: "Thalia", lastname: "Worries", email: "tworries@gmail.com", password: "t" },
   ])
 
-Posts.create([
+Post.create([
     { title: "Problems in BART", body: "I think there are problems in BART" },
     { title: "I love my cat", body: "I would die without my cat" }
   ])
@@ -20,6 +20,9 @@ Comment.create([
     { body: "I don't think there are any problems in BART" },
     { body: "I love my cat too, they are so adorable" }
   ])
+
+User.first.comments << Comment.last
+User.last.comments << Comment.first
 
 Post.first.comments << Comment.first
 Post.last.comments << Comment.last
